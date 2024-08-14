@@ -1,0 +1,51 @@
+﻿@model List<MyProject.Models.Product>
+@{
+    ViewBag.Title = "Sản phẩm";
+}
+
+<h2>@ViewBag.Title</h2>
+<h2>@ViewBag.category</h2>
+@{
+    string iconClass = "";
+    if (ViewBag.IconClass == "fa-sort-desc")
+    {
+        iconClass = "fa-sort-asc";
+    }
+    else
+    {
+        iconClass = "fa-sort-desc";
+    }
+}
+<a href="/admin/productadmin/themsp">Thêm sản phẩm</a>
+<table class="table table-bordered">
+    <tr>
+        <th>Mã sản phẩm</th>
+        <th>Hình ảnh</th>
+        <th>Tên sản phẩm</th>
+        <th>Giá</th>
+        <th>Phân loại</th>
+        <th>Mô tả</th>
+        <th>Chỉnh sửa</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductID</td>
+            <td><img src="/image/@item.ProductImage" width="200px" /></td>
+            <td>@item.ProductName</td>
+            <td>@item.Price</td>
+            <td>@item.Category.CategoryName</td>
+            <td>@item.Description</td>
+            <td>
+                <a href="/admin/productadmin/edit/@item.ProductID">Sửa</a>
+                <a href="/admin/productadmin/delete/@item.ProductID">Xóa</a>
+            </td>
+        </tr>
+    }
+</table>
+<style>
+    .pagination {
+        justify-content: center;
+    }
+</style>
+

@@ -1,0 +1,24 @@
+﻿@model List<MyProject.Identity.AppUser>
+@{
+    ViewBag.Title = "ListUser";
+}
+
+<h2>ListUser</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <td>Tên tài khoản</td>
+        <td>Email</td>
+        <td>Số điện thoại</td>
+    </tr>
+        @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.UserName</td>
+                    <td>@item.Email</td>
+                    <td>@item.PhoneNumber</td>
+                </tr>
+
+            }
+</table>
+

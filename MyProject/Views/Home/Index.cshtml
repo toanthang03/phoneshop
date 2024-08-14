@@ -1,0 +1,110 @@
+﻿@model List<MyProject.Models.Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+
+    </div>
+</div>
+<div class="row"><br /></div>
+<div class="container-flush">
+    <div class="row">
+        <div class="slide">
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="2000">
+                        <img src="https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100,s_1920x533/https://cdn.tgdd.vn/2023/10/banner/IP15-2880-800-1920x533.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100,s_1920x533/https://cdn.tgdd.vn/2023/10/banner/7E31D0EF-1D7C-41F0-BDB6-CA1EBFB5C5F3-1920x533.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100,s_1920x533/https://cdn.tgdd.vn/2023/10/banner/iPad-10-2880-800-1920x533.png" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-flush">
+    <div class="row">
+        <br />
+    </div>
+</div>
+<br />
+<div class="container mt-3 d-flex mb-2">
+    <div class="row">
+        @foreach (var i in Model)
+        {
+            <div class="col-md-3 mt-3">
+                <div class="card">
+                    <a href="/product/listproduct/@i.CategoryID">
+                        <img src="@i.CategoryImage" class="card-img-top w-100" alt="...">
+                        <div class="card-body">
+                            <p class="card-text" style="color: black; text-align: center;">@i.CategoryName</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="container" style="padding-top: 20px;">
+    <div class="row">
+        <img src="https://static.kinhtedothi.vn/images/upload//2023/09/22/5-130923-051535.jpeg" class="img-fluid" alt="..." style="max-width: 100%; height: auto;" />
+    </div>
+</div>
+
+<div class="container" style="padding-top: 20px;">
+    <div class="row">
+        <div class="col">
+            <img src="https://cdn.sforum.vn/sforum/wp-content/uploads/2022/09/f1662572877.jpg" class="img-fluid" alt="..." style="max-width: 100%; height: auto;" />
+        </div>
+        <div class="col">
+            <img src="https://cdn.tgdd.vn/Files/2023/06/05/1532964/appleinsider3copy-050623-123211.jpg" class="img-fluid" alt="..." style="max-width: 100%; height: auto;" />
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <img src="https://cdn.tgdd.vn/Products/Images/522/295453/Slider/ipad-10-wifi-cellular-64gb638028247403755579.jpg" class="img-fluid" alt="..." style="max-width: 100%; height: auto;" />
+    </div>
+</div>
+<div class="container" style="padding-top: 20px;">
+    <div class="row">
+        <div class="col">
+            <img src="https://cdn.tgdd.vn/Files/2022/12/30/1499944/2-1.jpg" class="img-fluid" alt="..." style="max-width: 100%; height: auto;" />
+        </div>
+        <div class="col">
+            <img src="https://i.ytimg.com/vi/0okuAwqTHs0/maxresdefault.jpg" class="img-fluid" alt="..." style="max-width: 100%; height: auto" />
+        </div>
+    </div>
+</div>
+<style>
+    .category-list .card {
+        border-radius: 15px;
+        max-width: 1150px;
+        border: 1px solid grey;
+        text-align: center;
+        display: flex;
+        flex-basis: 15%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .card a {
+        text-decoration: none;
+    }
+</style>
+

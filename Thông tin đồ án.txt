@@ -1,0 +1,5 @@
+Đường dẫn video demo code: https://www.youtube.com/watch?v=Vb0MDvz_ta0
+
+Thông tin đăng nhập trang admin:
+	Username: admin
+	password: admin123

@@ -1,0 +1,94 @@
+﻿@model List<MyProject.Models.Product>
+@{
+    ViewBag.Title = "ListProduct";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container-flush">
+    <div class="row" style="padding-top: 20px;">
+        <div class="slide">
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="2000">
+                        <img src="https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100,s_1920x533/https://cdn.tgdd.vn/2023/10/banner/IP15-2880-800-1920x533.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100,s_1920x533/https://cdn.tgdd.vn/2023/10/banner/7E31D0EF-1D7C-41F0-BDB6-CA1EBFB5C5F3-1920x533.png" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="padding-top: 20px; text-align: center;">
+    <h1>@ViewBag.category</h1>
+</div>
+
+<div class="container-fluid">
+    <div class-="row">
+        <div class="sort">
+            @using (Html.BeginForm("ListProduct", "Product", FormMethod.Get, new { id = "myform" }))
+            {
+                @Html.DropDownList("Sort", new SelectList(
+                            new List<SelectListItem>
+                            {
+                                new SelectListItem{Text = "Sắp xếp theo giá tăng dần", Value="Tang"},
+                                new SelectListItem{Text = "Sắp xếp theo giá giảm dần", Value="Giam"},
+                            }, "Value", "Text"
+                ), "Sắp xếp theo ...")
+            }
+        </div>
+    </div>
+</div>
+
+<div class="container mt-3 d-flex mb-3">
+    <div class="row" style="justify-content: center;">
+        @foreach (var i in Model)
+        {
+            <div class="col-md-3 mt-5">
+                <div class="card">
+                    <a href="/product/detail/@i.ProductID" class="btn btn-outline">
+                        <img src="/image/@i.ProductImage" class="card-img-top w-55" alt="...">
+                        <div class="card-body">
+                            <h4 class="card-title">@i.ProductName</h4>
+                            <h5 class="card-text">@i.Price vnđ</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        @for (int a = 0; a < ViewBag.NoOfPages; a++)
+        {
+            <li class="page-item">
+                <a href="/product/listproduct?id=@ViewBag.ID&Sort=
+            @ViewBag.SortColumn&page=@(a+1)" class="btn btn-primary">@(a+1)</a>
+            </li>
+        }
+    </ul>
+</nav>
+
+<style>
+    .sort {
+        padding-top: 30px;
+        padding-left: 50px;
+        padding-bottom: 30px;
+    }
+
+    .pagination {
+        justify-content: center;
+    }
+</style>
+

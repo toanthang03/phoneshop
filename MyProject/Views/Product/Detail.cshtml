@@ -1,0 +1,84 @@
+﻿@model List<MyProject.Models.Product>
+<a href="~/Views/Product/Detail.cshtml">~/Views/Product/Detail.cshtml</a>
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row" style="padding-top: 50px;">
+        <div class="col-md-6">
+            <img src="/image/@ViewBag.Product.ProductImage" class="card-img-top" alt="..." style="width: 60%; height: auto; margin-top: 50px; margin-left: 150px;" />
+        </div>
+        <div class="col-md-3" style="padding-top: 50px;">
+            <h1 class="tilte">@ViewBag.Product.ProductName</h1>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Giá khuyến mãi tại</option>
+                <option value="1">TP. Hồ Chí Minh</option>
+                <option value="2">Hà Nội</option>
+                <option value="3">Đà Nẵng</option>
+                <option value="4">Bến Tre</option>
+            </select>
+            <h2 style="padding: 15px;">@ViewBag.Product.Price vnđ</h2>
+            <div class="row" style="padding: 15px;">
+                <p>Dung Lượng</p>
+                <form>
+                    <input type="radio" class="btn-check" name="options-base" id="option1" autocomplete="off" checked>
+                    <label class="btn btn-outline-secondary" for="option1">64GB</label>
+                    <input type="radio" class="btn-check" name="options-base" id="option2" autocomplete="off" checked>
+                    <label class="btn btn-outline-secondary" for="option2">128GB</label>
+                    <input type="radio" class="btn-check" name="options-base" id="option3" autocomplete="off" checked>
+                    <label class="btn btn-outline-secondary" for="option3">256GB</label>
+                    <input type="radio" class="btn-check" name="options-base" id="option4" autocomplete="off" checked>
+                    <label class="btn btn-outline-secondary" for="option4">512GB</label>
+                </form>
+            </div>
+            <div class="row" style="padding: 15px; display: flex; flex-wrap: wrap;">
+                <p>Màu sắc</p>
+                <form>
+                    <input type="radio" class="btn-check" name="options-base" id="option5" autocomplete="off" checked>
+                    <label class="btn btn-outline-secondary" for="option5">Xanh mint</label>
+                    <input type="radio" class="btn-check" name="options-base" id="option6" autocomplete="off" checked>
+                    <label class="btn btn-outline-secondary" for="option6">Tím</label>
+                    <input type="radio" class="btn-check" name="options-base" id="option7" autocomplete="off" checked>
+                    <label class="btn btn-outline-secondary" for="option7">Đỏ</label>
+                    <input type="radio" class="btn-check" name="options-base" id="option8" autocomplete="off" checked>
+                    <label class="btn btn-outline-secondary" for="option8">Trắng</label>
+                    <input type="radio" class="btn-check" name="options-base" id="option9" autocomplete="off" checked>
+                    <label class="btn btn-outline-secondary" for="option9">Đen</label>
+                    <input type="radio" class="btn-check" name="options-base" id="option10" autocomplete="off" checked>
+                    <label class="btn btn-outline-secondary" for="option10">Vàng</label>
+                </form>
+            </div>
+            <div class="row" style="padding: 10px;">
+                <button type="button" class="btn btn-danger">Mua Ngay</button>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <form action="/cart/add/@ViewBag.Product.ProductID" method="Post">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Thêm vào giỏ hàng</button>
+                    </form>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-primary" style="width: 100%;">Mua trả góp 0%</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-8">
+            <h1 style="color: red; text-align: center;">Đặc điểm nổi bật</h1>
+            <p style="text-align: justify;">@ViewBag.Product.Description</p>
+            <img src="/image/@ViewBag.Product.ProductImage" style="margin-left: 20%;  width: 60%; height: auto;" />
+        </div>
+        <div class="col-md-2">
+
+        </div>
+    </div>
+</div>
+

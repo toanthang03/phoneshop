@@ -1,0 +1,20 @@
+﻿@model List<MyProject.Models.Category>
+@{
+    ViewBag.Title = "Loai";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Mã loại</th>
+        <th>Tên loại</th>
+    </tr>
+        @foreach(var i in Model)
+            {
+            <tr>
+                <td>@i.CategoryID</td>
+                <td>@i.CategoryName</td>
+            </tr>   
+            }
+</table>
+
+
